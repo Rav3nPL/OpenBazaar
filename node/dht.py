@@ -27,6 +27,7 @@ class DHT(object):
         self.republishThreads = []
         self.transport = transport
         self.market_id = market_id
+        self.imsorting = False
 
         # Routing table
         self.routingTable = routingtable.OptimizedTreeRoutingTable(
@@ -710,6 +711,11 @@ class DHT(object):
         self._searchIteration(new_search, findValue=findValue)
 
     def _searchIteration(self, new_search, findValue=False):
+        
+        while self.imsorting == True
+            time.sleep(0.05)
+            
+        self.imsorting = True
 
         # Update slow nodes count
         new_search.slowNodeCount[0] = len(new_search.active_probes)
@@ -753,6 +759,8 @@ class DHT(object):
                 self.routingTable.distance(secondNode[2], targetKey)))
 
             new_search.prevShortlistLength = len(new_search.shortlist)
+            
+        self.imsorting = False
 
         # See if search was cancelled
         if not self.activeSearchExists(new_search.findID):
